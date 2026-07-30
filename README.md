@@ -6,6 +6,26 @@ GeoProspect is an independent public-data mineral-prospectivity research project
 
 The project is in **Stage 0 — Project Bootstrap and Feasibility Gate**. Stage 1 and all model training, prospectivity scoring, production data acquisition, feature-store, API, PostGIS, frontend and agent work remain blocked until a documented GO decision is issued.
 
+## Python quickstart
+
+Requirements: Git, `uv` and Python 3.12.
+
+```bash
+git clone https://github.com/Lukeyone/geoprospect.git
+cd geoprospect
+uv sync --locked
+uv run geoprospect status
+uv run python -m unittest discover -s tests -v
+```
+
+Expected status:
+
+```text
+Stage 0 active; Stage 1 blocked.
+```
+
+See [Stage 0 environment setup](docs/stage0/ENVIRONMENT_SETUP.md) for the full validation commands.
+
 ## Repository role
 
 This is the **central code and governance repository**. During Stage 0 it contains:
