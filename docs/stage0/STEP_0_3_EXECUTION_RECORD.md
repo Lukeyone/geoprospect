@@ -17,6 +17,12 @@
 - Added a publication policy to `geoprospect-data`.
 - Confirmed that no trained model artefacts or public data artefacts were present before initialization.
 
+## Merged changes
+
+- Central architecture: [Lukeyone/geoprospect#30](https://github.com/Lukeyone/geoprospect/pull/30)
+- Data publication boundary: [Lukeyone/geoprospect-data#1](https://github.com/Lukeyone/geoprospect-data/pull/1)
+- Empty model registry controls: [Lukeyone/geoprospect-models#1](https://github.com/Lukeyone/geoprospect-models/pull/1)
+
 ## Acceptance result
 
 - Central repository role explicit: **PASS**
