@@ -31,5 +31,6 @@ It must not contain restricted raw data, large source datasets or trained model 
 - [Issue index](docs/stage0/STAGE0_ISSUE_INDEX.md)
 - [Review and merge policy](docs/stage0/REVIEW_AND_MERGE_POLICY.md)
 - [Repository architecture decision](docs/decisions/ADR-002-repository-and-publication-architecture.md)
+- [Repository responsibility statement](docs/stage0/REPOSITORY_RESPONSIBILITIES.md)
 
 The initial north-west Queensland copper-cobalt concept is provisional and remains subject to the Stage 0 GO/SWITCH/STOP gate.
