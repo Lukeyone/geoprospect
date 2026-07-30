@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Reproducible Stage 0 feasibility-audit tooling for the GeoProspect project."
 readme = "README.md"
 requires-python = ">=3.12,<3.14"
-license = { text = "MIT" }
 authors = [{ name = "Lachlan McDonald" }]
 dependencies = []
 
