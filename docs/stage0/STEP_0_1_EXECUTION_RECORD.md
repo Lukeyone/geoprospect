@@ -2,7 +2,8 @@
 
 **Execution date:** 30 July 2026  
 **Requested action:** Confirm and publish the authoritative Stage 0 scope  
-**Result:** COMPLETE
+**Result:** COMPLETE  
+**Master tracking issue:** [#1 — Stage 0 feasibility audit and GO/SWITCH/STOP gate](https://github.com/Lukeyone/geoprospect/issues/1)
 
 ## Implemented
 
@@ -13,7 +14,8 @@
 - Preserved all mandatory positive-count, spatial-spread, geology, magnetic, gravity, label-quality, licensing, evaluation-feasibility and exploration-bias gates.
 - Recorded work that is permitted and prohibited during Stage 0.
 - Recorded GO, SWITCH and STOP outcomes.
-- Created the Stage 0 master issue to track the complete feasibility gate.
+- Created and assigned the Stage 0 master issue to track the complete feasibility gate.
+- Added direct links from the master issue to the authoritative scope, Stage 1 block and this execution record.
 
 ## Acceptance result
 
