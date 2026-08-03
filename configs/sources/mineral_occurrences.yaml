@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "source_id": "qld-minocc-status-layer-12",
+  "source_class": "mineral_occurrences",
+  "status": "plausible",
+  "publisher": "State of Queensland",
+  "title": "Mines and mineral occurrence by status",
+  "official_source_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer",
+  "metadata_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/12",
+  "access_urls": [
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/12"
+  ],
+  "access_method": "arcgis_rest",
+  "product_or_layer_id": "service-item-7a96c3bdb2f54a0fa241a9b9e1c85bee/layer-12",
+  "related_layer_ids": [
+    "layer-17-operating-mine",
+    "layer-18-care-and-maintenance",
+    "layer-19-historical-workings",
+    "layer-20-mineral-occurrence"
+  ],
+  "formats": ["JSON", "GeoJSON", "PBF"],
+  "service_crs": "EPSG:3857 — Web Mercator Auxiliary Sphere",
+  "source_crs": "EPSG:7844 — GDA2020",
+  "spatial_extent": {
+    "min_x": 15362740.295882702,
+    "min_y": -3378478.5646394193,
+    "max_x": 17090126.48785594,
+    "max_y": -1127911.7973703186
+  },
+  "extent_crs": "EPSG:3857",
+  "nominal_resolution": "Point locations with source location-method and location-accuracy attributes",
+  "update_metadata": "The live layer exposes date_current and date_recorded per record. The service does not expose one authoritative dataset-level last-updated timestamp.",
+  "relevant_fields_or_bands": [
+    "site_no",
+    "occur_name",
+    "site_locality",
+    "loc_method",
+    "loc_accuracy",
+    "latitude",
+    "longitude",
+    "easting",
+    "northing",
+    "date_current",
+    "date_recorded",
+    "site_type",
+    "group_code",
+    "group_name",
+    "mine_status",
+    "explore_status",
+    "deposit_size",
+    "main_commodity",
+    "main_commodity_code",
+    "main_occur_size",
+    "all_commodities",
+    "shape"
+  ],
+  "endpoint_validation": {
+    "checked_at": "2026-08-03T05:25:00Z",
+    "validation_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/12",
+    "status": "live_metadata_validated",
+    "method": "Inspected the live ArcGIS REST service and feature-layer metadata rather than relying on a catalogue record.",
+    "observed_evidence": [
+      "Feature layer 12 is named Mines and mineral occurrence by status and uses point geometry.",
+      "The service advertises JSON, GeoJSON and PBF query formats.",
+      "The layer advertises advanced queries and a maximum record count of 2000.",
+      "The field schema exposes original identifiers, commodities, statuses, coordinates and location-quality attributes.",
+      "The service item identifier and spatial extent are exposed by the live endpoint."
+    ],
+    "limitations": [
+      "A complete count query, pagination design and silent-truncation test are deferred to Step 0.9."
+    ]
+  },
+  "licence_review_status": "pending_step_0_8",
+  "licence_evidence_urls": [
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer"
+  ],
+  "limitations": [
+    "The 2000-record transfer limit requires explicit pagination or object-ID batching.",
+    "Service and layer copyright text carry different historic departmental labels and years; they are not proof of data currency.",
+    "Records are occurrences and mines, not independent deposits; duplicates and parent-child relationships remain unresolved.",
+    "Coordinate accuracy varies and must be profiled before spatial assignment.",
+    "This endpoint is mutable and is not an immutable Stage 0 snapshot."
+  ],
+  "selection_notes": [
+    "Layer 12 is preferred for discovery because it retains all advertised mine-status classes in one schema.",
+    "Commodity-specific sublayers remain useful cross-checks but are not selected as the primary acquisition surface."
+  ]
+}
