@@ -129,9 +129,13 @@ class OccurrenceSnapshot(Stage0Contract):
                 raise ValueError("exact reconciliation requires equal acquired and source counts")
         elif self.record_count == self.source_reported_count:
             raise ValueError("equal counts must use exact reconciliation")
-        if self.count_reconciliation in {
-            CountReconciliationStatus.EXPLAINED_MISMATCH,
-            CountReconciliationStatus.UNRESOLVED_MISMATCH,
-        } and not self.count_reconciliation_note:
+        if (
+            self.count_reconciliation
+            in {
+                CountReconciliationStatus.EXPLAINED_MISMATCH,
+                CountReconciliationStatus.UNRESOLVED_MISMATCH,
+            }
+            and not self.count_reconciliation_note
+        ):
             raise ValueError("count mismatches require a reconciliation note")
         return self
