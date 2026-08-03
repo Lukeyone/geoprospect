@@ -132,6 +132,15 @@ def test_canonical_sites_preserve_unique_source_membership() -> None:
         CanonicalSite.model_validate(payload)
 
 
+def test_unresolved_duplicate_risk_prevents_high_confidence_positive() -> None:
+    """Unresolved independence risk cannot enter the high-confidence positive count."""
+    payload = load_fixture("canonical_site.json")
+    payload["unresolved_duplicate_risk"] = True
+
+    with pytest.raises(ValidationError, match="prevents high-confidence"):
+        CanonicalSite.model_validate(payload)
+
+
 def test_study_area_rejects_self_intersecting_polygon() -> None:
     """Candidate boundaries must be closed, non-degenerate and simple."""
     payload = load_fixture("candidate_study_area.json")
@@ -176,6 +185,24 @@ def test_spatial_layout_enforces_one_block_per_cell() -> None:
             block_scheme_version="blocks-50km-v1",
             cells=[cell],
             blocks=[block, duplicate_block],
+        )
+
+
+def test_spatial_layout_reconciles_positive_sites_with_member_cells() -> None:
+    """Block positive lists must be derived from exactly their member cells."""
+    cell = ProvisionalCell.model_validate(load_fixture("provisional_cell.json"))
+    block_payload = load_fixture("spatial_block.json")
+    block_payload["positive_site_ids"] = []
+    inconsistent_block = SpatialBlock.model_validate(block_payload)
+
+    with pytest.raises(ValidationError, match="positive-site assignments"):
+        SpatialLayout(
+            layout_id="layout-inconsistent-sites",
+            study_area_id="study-area-nwqld-a",
+            grid_version="grid-5km-v1",
+            block_scheme_version="blocks-50km-v1",
+            cells=[cell],
+            blocks=[inconsistent_block],
         )
 
 
@@ -243,6 +270,23 @@ def test_gate_threshold_boundaries_are_deterministic() -> None:
             threshold=80.0,
             status=GateStatus.PASS,
         )
+
+
+def test_resolved_qualitative_gate_requires_measured_evidence() -> None:
+    """A qualitative PASS cannot exist without a recorded observation."""
+    payload = load_fixture("gate_results.json")
+    results = payload["results"]
+    assert isinstance(results, list)
+    cluster_gate = next(
+        result
+        for result in results
+        if isinstance(result, dict) and result.get("gate_name") == "cluster_dominance"
+    )
+    assert isinstance(cluster_gate, dict)
+    cluster_gate["measured_value"] = None
+
+    with pytest.raises(ValidationError, match="require a measured value"):
+        GateResultSet.model_validate(payload)
 
 
 def test_go_is_rejected_when_any_mandatory_gate_fails() -> None:
