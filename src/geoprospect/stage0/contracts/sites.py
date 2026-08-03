@@ -85,4 +85,8 @@ class CanonicalSite(Stage0Contract):
             list(self.commodity_definition_ids),
             label="commodity_definition_ids",
         )
+        if self.high_confidence_positive and not self.commodity_definition_ids:
+            raise ValueError("high-confidence positives require a commodity definition")
+        if self.high_confidence_positive and self.unresolved_duplicate_risk:
+            raise ValueError("unresolved duplicate risk prevents high-confidence status")
         return self
