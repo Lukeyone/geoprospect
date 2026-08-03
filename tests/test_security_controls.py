@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from scripts.verify_secret_scan import main
+from geoprospect.secret_scan import main
 
 
 def _write_report(path: Path, results: object) -> None:
@@ -21,7 +21,7 @@ def test_secret_scan_verifier_accepts_empty_results(tmp_path: Path) -> None:
 
 def test_secret_scan_verifier_rejects_findings(tmp_path: Path) -> None:
     report = tmp_path / "report.json"
-    _write_report(report, {"example.txt": [{"type": "Secret Keyword"}]})
+    _write_report(report, {"example.txt": [{"type": "Secret Keyword", "line_number": 4}]})
 
     assert main([str(report)]) == 1
 
