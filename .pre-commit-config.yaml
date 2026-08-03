@@ -53,7 +53,7 @@ repos:
 
       - id: mypy
         name: mypy strict typing
-        entry: uv run --with mypy==2.1.0 mypy
+        entry: uv run --with mypy==2.1.0 --with pytest==9.0.2 mypy
         language: system
         pass_filenames: false
         always_run: true
