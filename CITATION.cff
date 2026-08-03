@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite GeoProspect using this metadata when referring to the Stage 0 software or evidence framework."
+title: "GeoProspect"
+type: software
+version: 0.1.0
+authors:
+  - family-names: McDonald
+    given-names: Lachlan
+repository-code: "https://github.com/Lukeyone/geoprospect"
+abstract: >-
+  Reproducible tooling and governance controls for auditing whether public
+  geoscience data can support a defensible mineral-prospectivity experiment.
+keywords:
+  - mineral prospectivity
+  - geoscience
+  - spatial data
+  - reproducible research
