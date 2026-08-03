@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "coverage_id": "coverage-magnetics-area-a",
+  "source_id": "ga.magnetics.example.v1",
+  "study_area_id": "study-area-nwqld-a",
+  "block_id": null,
+  "layer_class": "magnetics",
+  "calculation_version": "coverage-v1",
+  "unit": "pixel",
+  "total_units": 1000,
+  "valid_units": 920,
+  "nodata_units": 50,
+  "excluded_units": 30,
+  "valid_percent": 92.0,
+  "nodata_percent": 5.0,
+  "excluded_percent": 3.0,
+  "mask_applied": true,
+  "source_resolution_metres": 80.0,
+  "effective_resolution_notes": [
+    "Nominal pixel size is not treated as effective survey resolution"
+  ],
+  "reprojection": "Reprojected to EPSG:7854 for masking",
+  "resampling": "Nearest-neighbour validity mask",
+  "calculated_at": "2026-08-03T03:00:00Z"
+}
