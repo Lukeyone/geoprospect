@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "source_id": "ga.occurrences.qld.v1",
+  "source_class": "mineral_occurrences",
+  "publisher": "Example Geological Survey",
+  "title": "Mineral occurrence audit extract",
+  "official_source_url": "https://example.gov.au/catalogue/occurrences",
+  "access_url": "https://example.gov.au/arcgis/rest/services/occurrences/FeatureServer/0",
+  "access_method": "arcgis_rest",
+  "product_or_layer_id": "FeatureServer/0",
+  "format": "GeoJSON",
+  "crs": "EPSG:4326",
+  "spatial_extent": {
+    "min_x": 137.0,
+    "min_y": -23.0,
+    "max_x": 141.0,
+    "max_y": -17.0
+  },
+  "retrieved_at": "2026-08-03T03:00:00Z",
+  "source_modified_at": "2026-07-15T00:00:00Z",
+  "checksum_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "byte_size": 2048,
+  "record_count": 2,
+  "licence": {
+    "name": "Example Open Data Licence",
+    "url": "https://example.gov.au/licence",
+    "attribution": "Example Geological Survey, accessed 3 August 2026",
+    "raw_redistribution": "unresolved",
+    "derived_outputs": "conditional",
+    "conditions": [
+      "Preserve attribution in derived outputs"
+    ]
+  },
+  "retrieval_parameters": {
+    "where": "1=1",
+    "outFields": "*"
+  },
+  "limitations": [
+    "Fixture only; not an approved source"
+  ]
+}
