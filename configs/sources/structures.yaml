@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "source_id": "qld-detailed-structures-layers-4-5",
+  "source_class": "structures",
+  "status": "plausible",
+  "publisher": "State of Queensland",
+  "title": "Detailed faults, shear zones and folds — Queensland detailed 1:100,000 geology",
+  "official_source_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer",
+  "metadata_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/4",
+  "access_urls": [
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/4",
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/5"
+  ],
+  "access_method": "arcgis_rest",
+  "product_or_layer_id": "service-item-119775283acd4d7c82798d04d6229492/layers-4-and-5",
+  "related_layer_ids": [
+    "layer-3-detailed-geological-boundaries",
+    "layer-6-detailed-dykes-veins-or-sills",
+    "layer-8-detailed-lineaments"
+  ],
+  "formats": ["JSON", "GeoJSON", "PBF"],
+  "service_crs": "EPSG:3857 — Web Mercator Auxiliary Sphere",
+  "source_crs": "EPSG:7844 — GDA2020",
+  "spatial_extent": {
+    "min_x": 15361454.628435763,
+    "min_y": -3439443.926143183,
+    "max_x": 17143200.952211324,
+    "max_y": -1006020.9497049999
+  },
+  "extent_crs": "EPSG:3857",
+  "nominal_resolution": "Detailed 1:100,000 vector linework with feature-level capture-scale metadata",
+  "update_metadata": "The live service metadata identifies the current detailed-structure group and individual fault and fold layers. No single dataset-level last-updated timestamp is exposed.",
+  "relevant_fields_or_bands": [
+    "type",
+    "id_desc",
+    "name",
+    "methods",
+    "source",
+    "scale",
+    "shape"
+  ],
+  "endpoint_validation": {
+    "checked_at": "2026-08-03T05:25:00Z",
+    "validation_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/layers",
+    "status": "live_metadata_validated",
+    "method": "Inspected the live ArcGIS REST layer catalogue, individual fault metadata and fold taxonomy in the live legend.",
+    "observed_evidence": [
+      "Layer 4 is a polyline feature layer named Detailed faults and shear zones.",
+      "Layer 5 is a polyline feature layer named Detailed folds.",
+      "Both layers advertise JSON, GeoJSON and PBF query formats and advanced queries.",
+      "The structure schema exposes type, description, name, method, source and capture scale.",
+      "The live legend distinguishes accurate, approximate, concealed, inferred and geophysically interpreted structural classes."
+    ],
+    "limitations": [
+      "Feature counts, geometry validity and density by candidate area are deferred to Step 0.18."
+    ]
+  },
+  "licence_review_status": "pending_step_0_8",
+  "licence_evidence_urls": [
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer"
+  ],
+  "limitations": [
+    "Faults and folds are separate layers and must be acquired and reconciled explicitly.",
+    "Detailed structural coverage inherits the spatial gaps and variable capture history of detailed mapping.",
+    "Line classifications include interpreted and concealed features; they are not equivalent observations.",
+    "The linework does not by itself establish topology, connectivity or geological causality.",
+    "The 2000-record transfer limit requires complete pagination or object-ID batching."
+  ],
+  "selection_notes": [
+    "Layers 4 and 5 jointly satisfy the requirement to identify plausible fault and fold pathways.",
+    "Additional boundary, dyke and lineament layers remain optional context rather than mandatory Step 0.7 selections."
+  ]
+}

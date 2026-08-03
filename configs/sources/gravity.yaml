@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "source_id": "ga-gravmap2019-cscba",
+  "source_class": "gravity",
+  "status": "plausible",
+  "publisher": "Geoscience Australia",
+  "title": "National Gravity Compilation 2019 — complete spherical cap Bouguer anomaly grid",
+  "official_source_url": "https://www.ga.gov.au/scientific-topics/disciplines/geophysics/gravity",
+  "metadata_url": "https://services.ga.gov.au/gis/geophysical-grids/ows",
+  "access_urls": [
+    "https://thredds.nci.org.au/thredds/fileServer/iv65/Geoscience_Australia_Geophysics_Reference_Data_Collection/national_geophysical_compilations/Gravmap2019/Gravmap2019-grid-grv_cscba.nc",
+    "https://services.ga.gov.au/gis/geophysical-grids/ows?SERVICE=WMS&"
+  ],
+  "access_method": "download",
+  "product_or_layer_id": "geophys:Gravmap2019-grid-grv_cscba",
+  "related_layer_ids": [
+    "ga-133023-2019-australian-national-gravity-grids",
+    "survey-project-202008"
+  ],
+  "formats": ["NetCDF", "WMS 1.1.1/1.3.0", "GeoTIFF via GADDS", "ERS via GADDS"],
+  "service_crs": "EPSG:4283 — GDA94",
+  "source_crs": "EPSG:4283 — GDA94",
+  "spatial_extent": {
+    "min_x": 107.99791666666667,
+    "min_y": -48.00208337360861,
+    "max_x": 164.00208333333336,
+    "max_y": -7.997916667278789
+  },
+  "extent_crs": "EPSG:4283",
+  "nominal_resolution": "0.00417 degrees, approximately 435 metres",
+  "update_metadata": "Australian National Gravity Database observations included through September 2019; product maintenance frequency as needed.",
+  "relevant_fields_or_bands": [
+    "complete spherical cap Bouguer anomaly",
+    "units: micrometres per second squared, also called gravity units",
+    "2019 Australian National Gravity Grids A-series"
+  ],
+  "endpoint_validation": {
+    "checked_at": "2026-08-03T05:25:00Z",
+    "validation_url": "https://services.ga.gov.au/gis/geophysical-grids/ows",
+    "status": "official_metadata_validated",
+    "method": "Inspected Geoscience Australia's gravity product description, official national geophysical-grids service directory and the product-specific NetCDF and WMS identifiers.",
+    "observed_evidence": [
+      "Geoscience Australia identifies the 2019 national gravity grids as the latest published edition.",
+      "The exact layer identifier is geophys:Gravmap2019-grid-grv_cscba.",
+      "An exact NetCDF download path is published for Gravmap2019-grid-grv_cscba.nc.",
+      "The official National Geophysical Grids WMS endpoint is published by the Australian Geological Survey Organisations Network.",
+      "Product metadata records GDA94, national extent, 0.00417-degree cells, units and source-observation date."
+    ],
+    "limitations": [
+      "A bounded raster read, nodata check and layer-specific WMS/WCS operation are deferred to Step 0.19."
+    ]
+  },
+  "licence_review_status": "pending_step_0_8",
+  "licence_evidence_urls": [
+    "https://www.ga.gov.au/scientific-topics/disciplines/geophysics/gravity",
+    "https://services.ga.gov.au/gis/geophysical-grids/ows"
+  ],
+  "limitations": [
+    "The nominal 435-metre cell size is much finer than effective support where gravity-station spacing is several kilometres.",
+    "Ground-station spacing varies substantially, with major continental areas reported between approximately 2.5 and 7 kilometres and some northern and western areas coarser.",
+    "The national product combines terrestrial observations with offshore gravity sources and must be masked to the selected onshore candidate area.",
+    "The compilation reflects observations available through September 2019 and is not a real-time product.",
+    "The WMS is an image service; coverage calculations should use the numeric NetCDF or another confirmed numeric grid path."
+  ],
+  "selection_notes": [
+    "The untransformed complete Bouguer anomaly grid is preferred over an image or derivative for initial coverage and source-quality inspection.",
+    "Derivative and airborne-inclusive B-series grids remain comparison candidates for later scientific review."
+  ]
+}

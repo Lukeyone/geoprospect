@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "step_id": "0.7",
+  "checked_at": "2026-08-03T05:25:00Z",
+  "scope": "Metadata and access-path discovery only; no bulk dataset acquisition was performed.",
+  "results": [
+    {
+      "source_id": "qld-minocc-status-layer-12",
+      "source_class": "mineral_occurrences",
+      "validation_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/MiningResources/MapServer/12",
+      "status": "live_metadata_validated",
+      "result": "The live ArcGIS layer exposes point geometry, service item and layer identifiers, field schema, extent, query formats, advanced-query support and a 2000-record limit.",
+      "deferred": "Count reconciliation, pagination and bounded acquisition tests belong to Step 0.9."
+    },
+    {
+      "source_id": "qld-detailed-surface-geology-layer-15",
+      "source_class": "geology",
+      "validation_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/15",
+      "status": "live_metadata_validated",
+      "result": "The live polygon layer exposes detailed 1:100,000 surface-geology attributes, extent, service and source CRS context, query formats and related surface/solid mapping extent layers.",
+      "deferred": "Candidate-area polygon counts and valid-geology coverage belong to Step 0.18."
+    },
+    {
+      "source_id": "qld-detailed-structures-layers-4-5",
+      "source_class": "structures",
+      "validation_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/layers",
+      "status": "live_metadata_validated",
+      "result": "The live service exposes separate polyline fault/shear and fold layers, structural taxonomy, source and capture-scale fields, extent and query capabilities.",
+      "deferred": "Geometry validity, density, regional gaps and candidate overlap belong to Step 0.18."
+    },
+    {
+      "source_id": "ga-magmap2019-tmi-rtp-1vd-awags",
+      "source_class": "magnetics",
+      "validation_url": "https://pid.geoscience.gov.au/dataset/ga/144752",
+      "status": "official_metadata_validated",
+      "result": "The Geoscience Australia product record publishes a persistent identifier, exact NetCDF file, WCS, NCSS and OPeNDAP paths, GDA94 extent, cell size, units, lineage and update frequency.",
+      "deferred": "A bounded numeric read, nodata measurement and survey-quality assessment belong to Step 0.19."
+    },
+    {
+      "source_id": "ga-gravmap2019-cscba",
+      "source_class": "gravity",
+      "validation_url": "https://services.ga.gov.au/gis/geophysical-grids/ows",
+      "status": "official_metadata_validated",
+      "result": "Geoscience Australia publishes the national geophysical-grids WMS, the exact CSCBA layer identifier and an exact NetCDF path for the 2019 complete spherical cap Bouguer anomaly grid.",
+      "deferred": "A bounded numeric read, nodata measurement and effective station-support assessment belong to Step 0.19."
+    }
+  ],
+  "licensing_status": "All five pathways remain pending Step 0.8 licence, attribution, raw-redistribution and derived-output classification.",
+  "stage_1_status": "BLOCKED"
+}

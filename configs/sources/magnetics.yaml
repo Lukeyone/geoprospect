@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "source_id": "ga-magmap2019-tmi-rtp-1vd-awags",
+  "source_class": "magnetics",
+  "status": "plausible",
+  "publisher": "Geoscience Australia",
+  "title": "Magnetic Anomaly Map of Australia, Seventh Edition — TMI RTP 1VD grid (AWAGS)",
+  "official_source_url": "https://pid.geoscience.gov.au/dataset/ga/144752",
+  "metadata_url": "https://pid.geoscience.gov.au/dataset/ga/144752",
+  "access_urls": [
+    "https://thredds.nci.org.au/thredds/fileServer/iv65/Geoscience_Australia_Geophysics_Reference_Data_Collection/national_geophysical_compilations/Magmap2019/Magmap2019-grid-tmi_rtp_1vd-AWAGS_MAG_2019.nc",
+    "https://thredds.nci.org.au/thredds/wcs/iv65/Geoscience_Australia_Geophysics_Reference_Data_Collection/national_geophysical_compilations/Magmap2019/Magmap2019-grid-tmi_rtp_1vd-AWAGS_MAG_2019.nc?service=WCS&version=1.0.0&request=GetCapabilities"
+  ],
+  "access_method": "wcs",
+  "product_or_layer_id": "ga-144752/Magmap2019-grid-tmi_rtp_1vd-AWAGS_MAG_2019",
+  "related_layer_ids": [
+    "ga-131505-total-magnetic-intensity-grid-2019",
+    "survey-project-1324"
+  ],
+  "formats": ["NetCDF", "WCS 1.0.0", "NCSS", "OPeNDAP"],
+  "service_crs": "EPSG:4283 — GDA94",
+  "source_crs": "EPSG:4283 — GDA94",
+  "spatial_extent": {
+    "min_x": 105.9996,
+    "min_y": -43.9301,
+    "max_x": 154.6635,
+    "max_y": -9.0265
+  },
+  "extent_crs": "EPSG:4283",
+  "nominal_resolution": "0.00083 degrees, approximately 88 metres",
+  "update_metadata": "Compilation data period 2019; product created in 2020, metadata modified in 2021, maintenance frequency not planned.",
+  "relevant_fields_or_bands": [
+    "first vertical derivative of TMI reduced to the pole",
+    "units: nanotesla per metre",
+    "national airborne magnetic compilation"
+  ],
+  "endpoint_validation": {
+    "checked_at": "2026-08-03T05:25:00Z",
+    "validation_url": "https://pid.geoscience.gov.au/dataset/ga/144752",
+    "status": "official_metadata_validated",
+    "method": "Inspected the Geoscience Australia persistent product record and its published NCI THREDDS download, NCSS, OPeNDAP and WCS access paths.",
+    "observed_evidence": [
+      "The persistent product identifier is GA dataset 144752.",
+      "The product record exposes an exact NetCDF file path and WCS GetCapabilities endpoint.",
+      "The metadata records GDA94, a national onshore and near-offshore extent and 0.00083-degree cells.",
+      "The grid is derived from the 2019 national magnetic compilation and 1059 survey grids.",
+      "The metadata identifies units, processing lineage and maintenance frequency."
+    ],
+    "limitations": [
+      "A bounded coverage read and nodata inspection are deferred to Step 0.19."
+    ]
+  },
+  "licence_review_status": "pending_step_0_8",
+  "licence_evidence_urls": [
+    "https://pid.geoscience.gov.au/dataset/ga/144752"
+  ],
+  "limitations": [
+    "This selected product is a first vertical derivative rather than the untransformed TMI grid.",
+    "First vertical derivatives enhance short-wavelength anomalies and also amplify noise.",
+    "The nominal 88-metre cell size does not equal effective measurement resolution, which varies with survey line spacing, terrain clearance and merge history.",
+    "The compilation is based on 2019 data and is marked as having no planned update.",
+    "The national mosaic contains survey joins and heterogeneous source surveys that must be carried into later quality and bias analysis."
+  ],
+  "selection_notes": [
+    "This exact grid is selected as a reproducibly addressable magnetic pathway for Step 0.7, not as the final Stage 1 magnetic feature.",
+    "The base TMI and other enhanced products remain alternatives for the later candidate comparison and coverage audit."
+  ]
+}
