@@ -53,10 +53,8 @@ repos:
 
       - id: mypy
         name: mypy strict typing
-        entry: mypy
-        language: python
-        additional_dependencies:
-          - mypy==2.1.0
+        entry: uv run --with mypy==2.1.0 mypy
+        language: system
         pass_filenames: false
         always_run: true
 
