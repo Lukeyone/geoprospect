@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -214,7 +214,7 @@ def make_numeric_gate(
         status=status,
         evidence_paths=["reports/stage0/test-evidence.csv"],
         failure_action="Apply the documented corrective or switch action",
-        evaluated_at=datetime(2026, 8, 3, 3, 0, tzinfo=timezone.utc),
+        evaluated_at=datetime(2026, 8, 3, 3, 0, tzinfo=UTC),
     )
 
 
