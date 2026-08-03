@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -35,6 +35,7 @@ MANDATORY_CLASSES = {
     SourceClass.MAGNETICS,
     SourceClass.GRAVITY,
 }
+DISCOVERED_AT = datetime(2026, 8, 3, 5, 25, tzinfo=UTC)
 
 
 def load_payload(name: str) -> dict[str, Any]:
@@ -51,10 +52,7 @@ def load_entries() -> list[SourceRegistryEntry]:
 
 def test_every_mandatory_source_class_has_one_plausible_entry() -> None:
     """Step 0.7 cannot pass with a missing or duplicated mandatory pathway."""
-    registry = SourceRegistry(
-        discovered_at=datetime(2026, 8, 3, 5, 25, tzinfo=UTC),
-        entries=load_entries(),
-    )
+    registry = SourceRegistry(discovered_at=DISCOVERED_AT, entries=load_entries())
 
     assert {entry.source_class for entry in registry.entries} == MANDATORY_CLASSES
     assert all(entry.status is DiscoveryStatus.PLAUSIBLE for entry in registry.entries)
@@ -82,10 +80,7 @@ def test_registry_rejects_missing_mandatory_class() -> None:
     entries = [entry for entry in load_entries() if entry.source_class is not SourceClass.GRAVITY]
 
     with pytest.raises(ValidationError, match="gravity"):
-        SourceRegistry(
-            discovered_at=datetime(2026, 8, 3, 5, 25, tzinfo=UTC),
-            entries=entries,
-        )
+        SourceRegistry(discovered_at=DISCOVERED_AT, entries=entries)
 
 
 def test_registry_rejects_duplicate_plausible_class() -> None:
@@ -94,10 +89,7 @@ def test_registry_rejects_duplicate_plausible_class() -> None:
     entries.append(entries[0].model_copy(update={"source_id": "duplicate-minocc"}))
 
     with pytest.raises(ValidationError, match="unique"):
-        SourceRegistry(
-            discovered_at=datetime(2026, 8, 3, 5, 25, tzinfo=UTC),
-            entries=entries,
-        )
+        SourceRegistry(discovered_at=DISCOVERED_AT, entries=entries)
 
 
 def test_plausible_source_rejects_failed_endpoint_validation() -> None:
@@ -118,3 +110,42 @@ def test_registry_rejects_unqualified_source_without_limitations() -> None:
 
     with pytest.raises(ValidationError, match="limitations"):
         SourceRegistryEntry.model_validate(payload)
+
+
+def test_plausible_source_rejects_insecure_endpoint() -> None:
+    """A plausible public pathway cannot silently downgrade to HTTP."""
+    payload = load_payload("geology.yaml")
+    payload["access_urls"] = [
+        "http://spatial-gis.information.qld.gov.au/arcgis/rest/services/"
+        "GeoscientificInformation/GeologyDetailed/MapServer/15"
+    ]
+
+    with pytest.raises(ValidationError, match="HTTPS"):
+        SourceRegistryEntry.model_validate(payload)
+
+
+def test_geophysics_requires_numeric_grid_path() -> None:
+    """An image-only WMS is insufficient for later valid-pixel measurement."""
+    payload = load_payload("gravity.yaml")
+    payload["access_urls"] = [
+        "https://services.ga.gov.au/gis/geophysical-grids/ows?SERVICE=WMS&"
+    ]
+
+    with pytest.raises(ValidationError, match="numeric NetCDF"):
+        SourceRegistryEntry.model_validate(payload)
+
+
+def test_endpoint_validation_cannot_postdate_registry_discovery() -> None:
+    """The registry cannot claim discovery before endpoint evidence existed."""
+    entries = load_entries()
+    future_entry = entries[0].model_copy(
+        update={
+            "endpoint_validation": entries[0].endpoint_validation.model_copy(
+                update={"checked_at": DISCOVERED_AT + timedelta(seconds=1)}
+            )
+        }
+    )
+    entries[0] = future_entry
+
+    with pytest.raises(ValidationError, match="endpoint validation time"):
+        SourceRegistry(discovered_at=DISCOVERED_AT, entries=entries)
