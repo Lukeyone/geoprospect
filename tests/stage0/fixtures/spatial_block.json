@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "block_id": "block-0001",
+  "block_scheme_version": "blocks-50km-v1",
+  "study_area_id": "study-area-nwqld-a",
+  "crs": "EPSG:7854",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [300000.0, 7600000.0],
+        [350000.0, 7600000.0],
+        [350000.0, 7650000.0],
+        [300000.0, 7650000.0],
+        [300000.0, 7600000.0]
+      ]
+    ]
+  },
+  "nominal_size_metres": 50000.0,
+  "area_square_metres": 2500000000.0,
+  "cell_ids": [
+    "cell-0001"
+  ],
+  "positive_site_ids": [
+    "site-example-001"
+  ],
+  "fold_id": "fold-a"
+}
