@@ -27,6 +27,8 @@ repos:
         args:
           - --disable-plugin
           - HexHighEntropyString
+          - --disable-plugin
+          - Base64HighEntropyString
           - --exclude-files
           - '(^|/)uv\.lock$'
 
@@ -61,9 +63,7 @@ repos:
 
       - id: pytest
         name: pytest
-        entry: pytest -q
-        language: python
-        additional_dependencies:
-          - pytest==9.0.2
+        entry: uv run --with pytest==9.0.2 pytest -q
+        language: system
         pass_filenames: false
         always_run: true
