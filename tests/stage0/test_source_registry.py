@@ -79,9 +79,7 @@ def test_registry_entries_are_traceable_and_defer_licensing() -> None:
 
 def test_registry_rejects_missing_mandatory_class() -> None:
     """An apparently complete registry cannot silently omit gravity."""
-    entries = [
-        entry for entry in load_entries() if entry.source_class is not SourceClass.GRAVITY
-    ]
+    entries = [entry for entry in load_entries() if entry.source_class is not SourceClass.GRAVITY]
 
     with pytest.raises(ValidationError, match="gravity"):
         SourceRegistry(
