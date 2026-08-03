@@ -28,10 +28,6 @@ repos:
     hooks:
       - id: detect-secrets
         args:
-          - --disable-plugin
-          - HexHighEntropyString
-          - --disable-plugin
-          - Base64HighEntropyString
           - --exclude-files
           - '(^|/)uv\.lock$'
 
