@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "result_id": "commodity-map-20260803",
+  "snapshot_id": "snapshot-occ-20260803",
+  "mapping_version": "commodity-aliases-v1",
+  "mappings": [
+    {
+      "mapping_id": "map-0001-cu",
+      "source_record_id": "occ-0001",
+      "raw_token": "Cu",
+      "normalised_token": "cu",
+      "status": "mapped",
+      "canonical_commodity": "copper",
+      "candidate_definition_ids": [
+        "definition-copper",
+        "definition-copper-cobalt"
+      ],
+      "mapping_rule_id": "rule-cu-symbol",
+      "rationale": "Standard chemical symbol for copper",
+      "review_required": false
+    },
+    {
+      "mapping_id": "map-0001-co",
+      "source_record_id": "occ-0001",
+      "raw_token": "Co",
+      "normalised_token": "co",
+      "status": "mapped",
+      "canonical_commodity": "cobalt",
+      "candidate_definition_ids": [
+        "definition-copper-cobalt"
+      ],
+      "mapping_rule_id": "rule-co-symbol",
+      "rationale": "Standard chemical symbol for cobalt",
+      "review_required": false
+    },
+    {
+      "mapping_id": "map-0002-unknown",
+      "source_record_id": "occ-0002",
+      "raw_token": "Unknown-X",
+      "normalised_token": "unknown-x",
+      "status": "unresolved",
+      "canonical_commodity": null,
+      "candidate_definition_ids": [],
+      "mapping_rule_id": null,
+      "rationale": "No reviewed alias rule exists",
+      "review_required": true
+    }
+  ],
+  "observed_mapping_count": 3,
+  "mapped_count": 2,
+  "excluded_count": 0,
+  "unresolved_count": 1,
+  "unknown_tokens": [
+    "Unknown-X"
+  ]
+}
