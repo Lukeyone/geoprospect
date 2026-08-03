@@ -78,7 +78,7 @@ jobs:
             --disable-plugin Base64HighEntropyString \
             --exclude-files '(^|/)uv\.lock$' \
             > /tmp/detect-secrets.json
-          uv run python scripts/verify_secret_scan.py /tmp/detect-secrets.json
+          uv run python -m geoprospect.secret_scan /tmp/detect-secrets.json
 
   pre-commit:
     name: Pre-commit
