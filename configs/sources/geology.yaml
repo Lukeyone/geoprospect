@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "source_id": "qld-detailed-surface-geology-layer-15",
+  "source_class": "geology",
+  "status": "plausible",
+  "publisher": "State of Queensland",
+  "title": "Detailed surface geology — Queensland detailed 1:100,000 geology",
+  "official_source_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer",
+  "metadata_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/15",
+  "access_urls": [
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/15"
+  ],
+  "access_method": "arcgis_rest",
+  "product_or_layer_id": "service-item-119775283acd4d7c82798d04d6229492/layer-15",
+  "related_layer_ids": [
+    "layer-14-detailed-surface-geology-extent",
+    "layer-16-detailed-solid-geology-extent",
+    "layer-17-detailed-solid-geology"
+  ],
+  "formats": ["JSON", "GeoJSON", "PBF"],
+  "service_crs": "EPSG:3857 — Web Mercator Auxiliary Sphere",
+  "source_crs": "EPSG:7844 — GDA2020",
+  "spatial_extent": {
+    "min_x": 15361519.756351098,
+    "min_y": -3439443.9261402795,
+    "max_x": 17102984.868555885,
+    "max_y": -1006020.9599814449
+  },
+  "extent_crs": "EPSG:3857",
+  "nominal_resolution": "Detailed 1:100,000 vector geological mapping",
+  "update_metadata": "The live service metadata was current when inspected and identifies the detailed 1:100,000 collection. It does not expose a single dataset-level last-updated timestamp for all polygons.",
+  "relevant_fields_or_bands": [
+    "keysurface",
+    "ru_name",
+    "map_symbol",
+    "lith_summ",
+    "dom_rock",
+    "rock_type",
+    "age",
+    "legend",
+    "legend_seq",
+    "keysolid",
+    "shape"
+  ],
+  "endpoint_validation": {
+    "checked_at": "2026-08-03T05:25:00Z",
+    "validation_url": "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer/15",
+    "status": "live_metadata_validated",
+    "method": "Inspected the live ArcGIS REST service, layer metadata and related mapping-extent layers.",
+    "observed_evidence": [
+      "Layer 15 is a polygon feature layer named Detailed surface geology.",
+      "The service identifies the collection as Detailed 1:100k and advertises JSON, GeoJSON and PBF.",
+      "The schema exposes geological unit name, map symbol, lithology, dominant rock, rock type and age.",
+      "Layer 14 provides an explicit detailed-surface-geology mapping extent.",
+      "Layer 17 separately exposes interpreted detailed solid geology."
+    ],
+    "limitations": [
+      "A full polygon count and candidate-area coverage calculation are deferred to Steps 0.16 and 0.18."
+    ]
+  },
+  "licence_review_status": "pending_step_0_8",
+  "licence_evidence_urls": [
+    "https://spatial-gis.information.qld.gov.au/arcgis/rest/services/GeoscientificInformation/GeologyDetailed/MapServer"
+  ],
+  "limitations": [
+    "Detailed mapping is not assumed to cover every candidate cell; the explicit extent layer must be used during the coverage audit.",
+    "Layer 15 represents surface geology; interpreted solid geology is a separate product and cannot silently replace the surface-geology gate.",
+    "Map scale is nominal and does not remove boundary, attribution or generalisation uncertainty.",
+    "The 2000-record transfer limit requires a complete acquisition strategy for any bulk retrieval.",
+    "The service is mutable and catalogue or copyright dates alone do not establish feature currency."
+  ],
+  "selection_notes": [
+    "Detailed surface geology is the primary candidate for the mandatory geology-coverage gate.",
+    "Solid geology remains a related interpretive source for later comparison, not an automatic substitute."
+  ]
+}
