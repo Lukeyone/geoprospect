@@ -26,6 +26,19 @@ Stage 0 active; Stage 1 blocked.
 
 See [Stage 0 environment setup](docs/stage0/ENVIRONMENT_SETUP.md) for the full validation commands.
 
+## Quality and security checks
+
+Install and run the pinned pre-commit suite:
+
+```bash
+uvx --from pre-commit==4.6.0 pre-commit install
+uvx --from pre-commit==4.6.0 pre-commit run --all-files
+```
+
+GitHub Actions repeats the controls on Python 3.12 and 3.13. The automated suite includes Ruff formatting and linting, strict mypy checks, pytest, secret detection, private-key detection and a 512 KiB added-file limit.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md) before submitting or publishing changes.
+
 ## Repository role
 
 This is the **central code and governance repository**. During Stage 0 it contains:
