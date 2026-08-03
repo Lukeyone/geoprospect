@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -57,7 +57,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -76,8 +76,6 @@ jobs:
           scanner_command="detect-secrets"  # pragma: allowlist secret
           uvx --from "$scanner_package" "$scanner_command" scan \
             --all-files \
-            --disable-plugin HexHighEntropyString \
-            --disable-plugin Base64HighEntropyString \
             --exclude-files '(^|/)uv\.lock$' \
             > /tmp/detect-secrets.json
           uv run python -m geoprospect.secret_scan /tmp/detect-secrets.json
@@ -88,7 +86,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
