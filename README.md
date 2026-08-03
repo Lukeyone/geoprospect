@@ -64,6 +64,8 @@ It must not contain restricted raw data, large source datasets or trained model 
 - [Issue index](docs/stage0/STAGE0_ISSUE_INDEX.md)
 - [Review and merge policy](docs/stage0/REVIEW_AND_MERGE_POLICY.md)
 - [Stage 0 data contracts](docs/stage0/DATA_CONTRACTS.md)
+- [Current authoritative source discovery](docs/stage0/SOURCE_DISCOVERY.md)
+- [Source endpoint validation results](reports/stage0/source_endpoint_validation.json)
 - [Repository architecture decision](docs/decisions/ADR-002-repository-and-publication-architecture.md)
 - [Repository responsibility statement](docs/stage0/REPOSITORY_RESPONSIBILITIES.md)
 
