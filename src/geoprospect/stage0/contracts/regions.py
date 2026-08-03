@@ -125,7 +125,7 @@ class SpatialLayout(Stage0Contract):
 
     @model_validator(mode="after")
     def reconcile_layout(self) -> SpatialLayout:
-        """Require unique IDs and exactly one declared block for every cell."""
+        """Reconcile every cell, block and positive-site assignment exactly once."""
         if not self.cells or not self.blocks:
             raise ValueError("spatial layouts require cells and blocks")
         cell_ids = [cell.cell_id for cell in self.cells]
@@ -134,6 +134,11 @@ class SpatialLayout(Stage0Contract):
         validate_identifier_collection(block_ids, label="block IDs")
         cell_id_set = set(cell_ids)
         block_id_set = set(block_ids)
+        cell_positive_ids = [site_id for cell in self.cells for site_id in cell.positive_site_ids]
+        validate_identifier_collection(
+            cell_positive_ids,
+            label="positive-site cell assignments",
+        )
         for cell in self.cells:
             if cell.study_area_id != self.study_area_id:
                 raise ValueError("all cells must belong to the layout study area")
@@ -150,6 +155,14 @@ class SpatialLayout(Stage0Contract):
             if not set(block.cell_ids) <= cell_id_set:
                 raise ValueError("blocks cannot reference undeclared cells")
             declared_memberships.extend(block.cell_ids)
+            expected_positive_ids = {
+                site_id
+                for cell in self.cells
+                if cell.cell_id in block.cell_ids
+                for site_id in cell.positive_site_ids
+            }
+            if set(block.positive_site_ids) != expected_positive_ids:
+                raise ValueError("block positive-site assignments must match member cells")
         if sorted(declared_memberships) != sorted(cell_ids):
             raise ValueError("each cell must occur in exactly one block membership list")
         for cell in self.cells:
