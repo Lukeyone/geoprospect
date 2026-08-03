@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "source_id": "ga.occurrences.qld.v1",
+  "snapshot_id": "snapshot-occ-20260803",
+  "source_record_id": "occ-0001",
+  "name_raw": "Example Prospect",
+  "status_raw": "Prospect",
+  "occurrence_type_raw": "Mineral occurrence",
+  "commodities_raw": [
+    "Cu",
+    "Co"
+  ],
+  "longitude_raw": "139.5000",
+  "latitude_raw": "-20.7500",
+  "longitude_wgs84": 139.5,
+  "latitude_wgs84": -20.75,
+  "geometry_wgs84": {
+    "type": "Point",
+    "coordinates": [
+      139.5,
+      -20.75
+    ]
+  },
+  "coordinate_crs_raw": "EPSG:4326",
+  "original_values": {
+    "OBJECTID": 1,
+    "NAME": "Example Prospect",
+    "COMMODITY": "Cu;Co",
+    "LONGITUDE": "139.5000",
+    "LATITUDE": "-20.7500"
+  },
+  "retrieved_at": "2026-08-03T03:00:00Z",
+  "quality_flags": []
+}

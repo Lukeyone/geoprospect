@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "canonical_site_id": "site-example-001",
+  "deduplication_version": "dedup-v1",
+  "canonical_name": "Example Prospect",
+  "geometry_wgs84": {
+    "type": "Point",
+    "coordinates": [
+      139.5,
+      -20.75
+    ]
+  },
+  "members": [
+    {
+      "source_record_id": "occ-0001",
+      "snapshot_id": "snapshot-occ-20260803",
+      "match_methods": [
+        "authoritative_id"
+      ],
+      "distance_metres": null,
+      "confidence": "high",
+      "conflict_flags": []
+    },
+    {
+      "source_record_id": "occ-0001-child",
+      "snapshot_id": "snapshot-occ-20260803",
+      "match_methods": [
+        "parent_child",
+        "projected_distance"
+      ],
+      "distance_metres": 35.0,
+      "confidence": "high",
+      "conflict_flags": []
+    }
+  ],
+  "representative_source_record_id": "occ-0001",
+  "high_confidence_positive": true,
+  "commodity_definition_ids": [
+    "definition-copper-cobalt"
+  ],
+  "unresolved_duplicate_risk": false,
+  "notes": [
+    "Fixture only"
+  ]
+}
