@@ -72,7 +72,9 @@ jobs:
       - name: Scan tracked files for secrets
         shell: bash
         run: |
-          uvx --from detect-secrets==1.5.0 detect-secrets scan \
+          scanner_package="detect-secrets==1.5.0"  # pragma: allowlist secret
+          scanner_command="detect-secrets"  # pragma: allowlist secret
+          uvx --from "$scanner_package" "$scanner_command" scan \
             --all-files \
             --disable-plugin HexHighEntropyString \
             --disable-plugin Base64HighEntropyString \
