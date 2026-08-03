@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from itertools import pairwise
 from typing import Annotated, Literal
 
 from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, StringConstraints, model_validator
@@ -128,13 +129,11 @@ def _validate_ring(ring: list[Coordinate2D]) -> None:
 
 
 def _signed_area(ring: list[Coordinate2D]) -> float:
-    return 0.5 * sum(
-        x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(ring[:-1], ring[1:], strict=True)
-    )
+    return 0.5 * sum(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in pairwise(ring))
 
 
 def _has_self_intersection(ring: list[Coordinate2D]) -> bool:
-    segments = list(zip(ring[:-1], ring[1:], strict=True))
+    segments = list(pairwise(ring))
     last_index = len(segments) - 1
     for first_index, first_segment in enumerate(segments):
         for second_index in range(first_index + 1, len(segments)):
@@ -162,14 +161,10 @@ def _segments_intersect(
     if orientations[0] != orientations[1] and orientations[2] != orientations[3]:
         return True
     return (
-        orientations[0] == 0
-        and _on_segment(a, c, b)
-        or orientations[1] == 0
-        and _on_segment(a, d, b)
-        or orientations[2] == 0
-        and _on_segment(c, a, d)
-        or orientations[3] == 0
-        and _on_segment(c, b, d)
+        (orientations[0] == 0 and _on_segment(a, c, b))
+        or (orientations[1] == 0 and _on_segment(a, d, b))
+        or (orientations[2] == 0 and _on_segment(c, a, d))
+        or (orientations[3] == 0 and _on_segment(c, b, d))
     )
 
 
