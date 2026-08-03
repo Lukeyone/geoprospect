@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "snapshot_id": "snapshot-occ-20260803",
+  "source_id": "ga.occurrences.qld.v1",
+  "retrieved_at": "2026-08-03T03:00:00Z",
+  "checksum_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "storage_uri": "approved-external://stage0/snapshots/snapshot-occ-20260803.geojson",
+  "format": "geojson",
+  "content_type": "application/geo+json",
+  "byte_size": 4096,
+  "record_count": 2,
+  "source_reported_count": 2,
+  "count_reconciliation": "exact",
+  "count_reconciliation_note": null,
+  "pagination_complete": true,
+  "original_values_preserved": true,
+  "manifest_path": "reports/stage0/occurrence_snapshot_manifest.yaml",
+  "working_copy_path": "work/stage0/snapshot-occ-20260803.parquet",
+  "limitations": [
+    "Fixture only"
+  ]
+}
