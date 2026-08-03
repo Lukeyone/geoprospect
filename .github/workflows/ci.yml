@@ -46,7 +46,7 @@ jobs:
         run: uvx --from ruff==0.16.0 ruff check .
 
       - name: Run mypy
-        run: uvx --from mypy==2.1.0 mypy
+        run: uv run --with mypy==2.1.0 mypy
 
       - name: Run pytest
         run: uv run --with pytest==9.0.2 pytest -q
