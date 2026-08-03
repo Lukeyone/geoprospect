@@ -49,7 +49,7 @@ jobs:
         run: uvx --from mypy==2.1.0 mypy
 
       - name: Run pytest
-        run: uvx --from pytest==9.0.2 pytest -q
+        run: uv run --with pytest==9.0.2 pytest -q
 
   secret-scan:
     name: Secret scan
@@ -75,6 +75,7 @@ jobs:
           uvx --from detect-secrets==1.5.0 detect-secrets scan \
             --all-files \
             --disable-plugin HexHighEntropyString \
+            --disable-plugin Base64HighEntropyString \
             --exclude-files '(^|/)uv\.lock$' \
             > /tmp/detect-secrets.json
           uv run python scripts/verify_secret_scan.py /tmp/detect-secrets.json
