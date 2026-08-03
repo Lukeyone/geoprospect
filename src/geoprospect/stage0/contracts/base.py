@@ -129,8 +129,7 @@ def _validate_ring(ring: list[Coordinate2D]) -> None:
 
 def _signed_area(ring: list[Coordinate2D]) -> float:
     return 0.5 * sum(
-        x1 * y2 - x2 * y1
-        for (x1, y1), (x2, y2) in zip(ring[:-1], ring[1:], strict=True)
+        x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(ring[:-1], ring[1:], strict=True)
     )
 
 
@@ -182,10 +181,7 @@ def _orientation(a: Coordinate2D, b: Coordinate2D, c: Coordinate2D) -> int:
 
 
 def _on_segment(a: Coordinate2D, b: Coordinate2D, c: Coordinate2D) -> bool:
-    return (
-        min(a[0], c[0]) <= b[0] <= max(a[0], c[0])
-        and min(a[1], c[1]) <= b[1] <= max(a[1], c[1])
-    )
+    return min(a[0], c[0]) <= b[0] <= max(a[0], c[0]) and min(a[1], c[1]) <= b[1] <= max(a[1], c[1])
 
 
 def validate_identifier_collection(values: list[str], *, label: str) -> None:
