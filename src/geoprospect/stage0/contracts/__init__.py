@@ -36,10 +36,16 @@ from geoprospect.stage0.contracts.sites import (
 )
 from geoprospect.stage0.contracts.sources import (
     AccessMethod,
+    DiscoveryStatus,
+    EndpointValidation,
+    EndpointValidationStatus,
     LicenceMetadata,
+    LicenceReviewStatus,
     PublicationPermission,
     SourceClass,
     SourceManifest,
+    SourceRegistry,
+    SourceRegistryEntry,
 )
 
 __all__ = [
@@ -55,11 +61,15 @@ __all__ = [
     "CoverageSummary",
     "CoverageUnit",
     "DeduplicationMethod",
+    "DiscoveryStatus",
+    "EndpointValidation",
+    "EndpointValidationStatus",
     "GateName",
     "GateResult",
     "GateResultSet",
     "GateStatus",
     "LicenceMetadata",
+    "LicenceReviewStatus",
     "MatchConfidence",
     "OccurrenceQualityFlag",
     "OccurrenceSnapshot",
@@ -69,6 +79,8 @@ __all__ = [
     "SnapshotFormat",
     "SourceClass",
     "SourceManifest",
+    "SourceRegistry",
+    "SourceRegistryEntry",
     "SpatialBlock",
     "SpatialLayout",
     "Stage0Decision",
