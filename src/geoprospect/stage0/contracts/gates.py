@@ -81,6 +81,11 @@ class GateResult(Stage0Contract):
         if self.operator is ComparisonOperator.QUALITATIVE:
             if self.threshold_value is None:
                 raise ValueError("qualitative gates require an explicit acceptance rule")
+            if self.status in {GateStatus.PASS, GateStatus.FAIL}:
+                if self.measured_value is None:
+                    raise ValueError("resolved qualitative gates require a measured value")
+                if isinstance(self.measured_value, str) and not self.measured_value.strip():
+                    raise ValueError("qualitative measured values must not be empty")
             return self
         if not isinstance(self.measured_value, (int, float)) or isinstance(
             self.measured_value,
