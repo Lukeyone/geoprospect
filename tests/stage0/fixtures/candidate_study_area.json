@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "study_area_id": "study-area-nwqld-a",
+  "version": "v1",
+  "name": "North-west Queensland candidate A",
+  "commodity_definition_ids": [
+    "definition-copper-cobalt"
+  ],
+  "crs": "EPSG:7854",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [300000.0, 7600000.0],
+        [400000.0, 7600000.0],
+        [400000.0, 7700000.0],
+        [300000.0, 7700000.0],
+        [300000.0, 7600000.0]
+      ]
+    ]
+  },
+  "geometry_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "context_buffer_metres": 25000.0,
+  "boundary_source": "Stage 0 candidate-boundary configuration",
+  "rationale": "Bounded fixture for contract validation",
+  "positive_site_count": 85,
+  "geological_coherence_notes": [
+    "Fixture does not constitute a selected final study area"
+  ],
+  "status": "candidate",
+  "created_at": "2026-08-03T03:00:00Z"
+}
