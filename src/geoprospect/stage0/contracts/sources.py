@@ -151,6 +151,21 @@ class SourceRegistryEntry(Stage0Contract):
                 raise ValueError("a failed endpoint cannot be registered as plausible")
             if self.licence_review_status is not LicenceReviewStatus.PENDING_STEP_0_8:
                 raise ValueError("Step 0.7 entries must defer final licence classification")
+            urls = [
+                self.official_source_url,
+                self.metadata_url,
+                self.endpoint_validation.validation_url,
+                *self.access_urls,
+                *self.licence_evidence_urls,
+            ]
+            if any(url.scheme != "https" for url in urls):
+                raise ValueError("plausible source pathways require HTTPS URLs")
+            if self.source_class in {SourceClass.MAGNETICS, SourceClass.GRAVITY}:
+                numeric_grid = any(url.path.endswith(".nc") for url in self.access_urls)
+                if not numeric_grid:
+                    raise ValueError(
+                        "geophysical sources require a numeric NetCDF grid pathway"
+                    )
         return self
 
 
@@ -180,6 +195,12 @@ class SourceRegistry(Stage0Contract):
         if missing:
             missing_names = ", ".join(sorted(item.value for item in missing))
             raise ValueError(f"mandatory source registry is incomplete: {missing_names}")
+        for entry in plausible:
+            ensure_not_future(
+                entry.endpoint_validation.checked_at,
+                reference=self.discovered_at,
+                label="endpoint validation time",
+            )
         return self
 
 
