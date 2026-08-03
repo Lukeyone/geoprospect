@@ -127,9 +127,7 @@ def test_plausible_source_rejects_insecure_endpoint() -> None:
 def test_geophysics_requires_numeric_grid_path() -> None:
     """An image-only WMS is insufficient for later valid-pixel measurement."""
     payload = load_payload("gravity.yaml")
-    payload["access_urls"] = [
-        "https://services.ga.gov.au/gis/geophysical-grids/ows?SERVICE=WMS&"
-    ]
+    payload["access_urls"] = ["https://services.ga.gov.au/gis/geophysical-grids/ows?SERVICE=WMS&"]
 
     with pytest.raises(ValidationError, match="numeric NetCDF"):
         SourceRegistryEntry.model_validate(payload)
