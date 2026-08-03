@@ -163,9 +163,7 @@ class SourceRegistryEntry(Stage0Contract):
             if self.source_class in {SourceClass.MAGNETICS, SourceClass.GRAVITY}:
                 numeric_grid = any(url.path.endswith(".nc") for url in self.access_urls)
                 if not numeric_grid:
-                    raise ValueError(
-                        "geophysical sources require a numeric NetCDF grid pathway"
-                    )
+                    raise ValueError("geophysical sources require a numeric NetCDF grid pathway")
         return self
 
 
